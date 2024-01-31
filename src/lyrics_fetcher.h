@@ -119,6 +119,14 @@ protected:
 	virtual const char *regex() const override { return "<div id=\"tartalom_slide_content\"> (.*?)<style>"; }
 };
 
+struct UtanetFetcher : public GoogleLyricsFetcher
+{
+	virtual const char *name() const override { return "uta-net.com"; }
+
+protected:
+	virtual const char *regex() const override { return "<div id=\"kashi_area\" itemprop=\"text\">(.*?)</div>"; }
+};
+
 struct InternetLyricsFetcher : public GoogleLyricsFetcher
 {
 	virtual const char *name() const override { return "the Internet"; }
